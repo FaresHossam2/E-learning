@@ -970,6 +970,7 @@ nav #last {
 @media(max-width:768px){
   .team .box{
 margin-bottom: 35px; 
+
   }
 }
 .team .box:hover{

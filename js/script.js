@@ -5,21 +5,18 @@ $(document).ready(function () {
     $("#bar").click(function() {
        
         $("nav ul").css("right", " -100px");
-        $("#bar").css("display", " none");
 
        
     });
     $("#close").click(function() {
        
         $("nav ul").css("right", " -3000px");
-        $("#bar").css("display", "block");
 
 
     });
     $("li").click(function() {
        
         $("nav ul").css("right", " -3000px");
-        $("#bar").css("display", "block");
 
 
     });
