@@ -1,86 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Register</title>
-        <!-- Render All Elements Normally -->
-        <link rel="stylesheet" href="css/normalize.css" />
-        <!-- Font Awesome Library -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <!-- Bootstrap Library -->
-        <link rel="stylesheet" href="css/all.min.css" />
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- Main Template CSS File -->
-        <link rel="stylesheet" href="css/register.css" />
-        <link rel="stylesheet" href="css/fa.min.css">
-    
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&#038;display=swap"
-            rel="stylesheet" />
-        <!-- JS & JQUERY -->
-        <!-- <script src="js/jquery-3.7.1.min.js"></script> -->
-        <script src="js/script.js"></script>
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Render All Elements Normally -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Bootstrap Library -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Main Template CSS File -->
+    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/fa.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700;800&#038;display=swap"
+          rel="stylesheet" />
+    <!-- JS & JQUERY -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
-    <div class="contact" id="contact">
-        <div class="container">
+<div class="contact" id="contact">
+    <div class="container">
         <div class="tittle">
             <h1>Create Account</h1>
         </div>
-      
-          <div class="content">
-            <form id="signInForm">
-              <div class="row" >
-                <div class="col">
-                  <input id="firstNameInput" type="text" class="main-input" placeholder="First name" required>
+        <div class="content">
+            <form id="signInForm" onsubmit="return validateForm()">
+                <div class="row">
+                    <div class="col">
+                        <input id="firstNameInput" type="text" class="main-input" placeholder="First name" required>
+                        <div id="firstNameError" class="error-message" style="color: red;"></div>
+                    </div>
+                    <div class="col">
+                        <input id="lastNameInput" type="text" class="main-input" placeholder="Last name" required>
+                        <div id="lastNameError" class="error-message" style="color: red;"></div>
+                    </div>
                 </div>
-                <div class="col">
-                  <input type="text" class="main-input" placeholder="Last name" required>
+                <input id="emailInput" class="main-input" type="email" name="email" placeholder="Your Email" required>
+                <div id="emailError" class="error-message" style="color: red;"></div>
+                <input id="usernameInput" class="main-input" type="text" name="name" placeholder="Username" required>
+                <div id="usernameError" class="error-message" style="color: red;"></div>
+                <div class="row">
+                    <div class="col">
+                        <input id="passwordInput" type="password" class="main-input" placeholder="Password" required>
+                        <div id="passwordError" class="error-message" style="color: red;"></div>
+                    </div>
+                    <div class="col">
+                        <input id="confirmPasswordInput" type="password" class="main-input" placeholder="Confirm Password" required>
+                        <div id="confirmPasswordError" class="error-message" style="color: red;"></div>
+                    </div>
                 </div>
-              </div>            
-              <input class="main-input" type="email" name="mail" placeholder="Your Email" required>
-             
-                  <input class="main-input" type="text" name="name" placeholder="Username " required>
-                
-              <div class="row">
-                <div class="col">
-                  <input type="password" class="main-input" placeholder="Password" required>
+                <input id="signupButton" class="signup" type="submit" value="Sign up">
+                <div class="or">
+                    <div class="txt">
+                        <h4><span></span> sign up with</h4>
+                    </div>
+                    <div class="social">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-google"></i>
+                        <i class="fa-brands fa-linkedin"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="already">
+                        <h4>Already have an Account ? <a href="./login.html">Sign in</a> </h4>
+                    </div>
                 </div>
-                <div class="col">
-                  <input type="password" class="main-input" placeholder="Confirm Password" required>
-                </div>
-              </div>
-              <a  href="./login.html"><input class="signup" type="submit" value="Sign up"></a>
-              <div class="or">
-                <div class="txt">
-                  <h4> <span></span> sign up with</h4>
-                </div>
-                <div class="social">
-                  <i class="fa-brands fa-facebook"></i>
-                  <i class="fa-brands fa-google"></i>
-                  <i class="fa-brands fa-linkedin"></i>
-                  <i class="fa-brands fa-instagram"></i>  
-                </div>
-               <div class="already">
-                <h4>already have an Account ? <a href="./login.html">sign in</a> </h4>
-               </div>
-              </div>
             </form>
-         
-          </div>
         </div>
-      </div>
-      <script>
-        document.getElementById('signInForm').addEventListener('submit', function (event) {
-          event.preventDefault();
-            // Redirect to another page (replace 'targetPage.html' with your desired page)
+    </div>
+</div>
+<script>
+    function validateForm() {
+        var firstName = document.getElementById('firstNameInput').value.trim();
+        var lastName = document.getElementById('lastNameInput').value.trim();
+        var email = document.getElementById('emailInput').value.trim();
+        var username = document.getElementById('usernameInput').value.trim();
+        var password = document.getElementById('passwordInput').value;
+        var confirmPassword = document.getElementById('confirmPasswordInput').value;
+
+        var firstNameError = document.getElementById('firstNameError');
+        var lastNameError = document.getElementById('lastNameError');
+        var emailError = document.getElementById('emailError');
+        var usernameError = document.getElementById('usernameError');
+        var passwordError = document.getElementById('passwordError');
+        var confirmPasswordError = document.getElementById('confirmPasswordError');
+
+        // Reset error messages
+        firstNameError.textContent = '';
+        lastNameError.textContent = '';
+        emailError.textContent = '';
+        usernameError.textContent = '';
+        passwordError.textContent = '';
+        confirmPasswordError.textContent = '';
+
+        var valid = true;
+
+        // Validation rules
+        if (firstName === '') {
+            firstNameError.textContent = 'First name is required';
+            valid = false;
+        }
+
+        if (lastName === '') {
+            lastNameError.textContent = 'Last name is required';
+            valid = false;
+        }
+
+        if (email === '') {
+            emailError.textContent = 'Email is required';
+            valid = false;
+        } else if (!isValidEmail(email)) {
+            emailError.textContent = 'Invalid email format';
+            valid = false;
+        }
+
+        if (username === '') {
+            usernameError.textContent = 'Username is required';
+            valid = false;
+        }
+
+        if (password === '') {
+            passwordError.textContent = 'Password is required';
+            valid = false;
+        } else if (password.length < 6) {
+            passwordError.textContent = 'Password must be at least 6 characters long';
+            valid = false;
+        }
+
+        if (confirmPassword === '') {
+            confirmPasswordError.textContent = 'Please confirm your password';
+            valid = false;
+        } else if (password !== confirmPassword) {
+            confirmPasswordError.textContent = 'Passwords do not match';
+            valid = false;
+        }
+
+        if (valid) {
+            // Redirect to login page after successful registration
             window.location.href = './login.html';
-        });
-    </script>
-            <script src="js/script.js"></script>
+        }
+
+        return false; // Prevent form submission
+    }
+
+    function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
 </body>
 </html>

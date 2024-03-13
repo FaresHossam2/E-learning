@@ -70,12 +70,25 @@ function redirectToPaymentPage() {
     window.location.href = "payment.html";
 }
 
-function closeSuccessCard() {
-    var successCard = document.querySelector('.success-card');
-    successCard.style.display = 'none';
-
+function formatInput(input) {
+  // Remove non-numeric characters from the input value
+  var value = input.value.replace(/\D/g, '');
+  
+  // Format the value with spaces after every 4 digits
+  var formattedValue = '';
+  for (var i = 0; i < value.length; i++) {
+    if (i > 0 && i % 4 === 0) {
+      formattedValue += ' '; // Add a space after every 4th digit
+    }
+    formattedValue += value[i];
   }
   
+  // Truncate the value to 16 digits
+  formattedValue = formattedValue.substr(0, 19);
+  
+  // Update the input value
+  input.value = formattedValue;
+}
   document.addEventListener('DOMContentLoaded', function () {
     // Get the elements
     var startFreeTrialLink = document.querySelector('.free a');
@@ -114,7 +127,26 @@ function closeSuccessCard() {
   
 
 
+//validate
+function validateForm() {
+    var newPassword = document.getElementById('newPassword').value;
+    var confirmPassword = document.getElementById('confirmPassword').value;
 
+    // Check if the passwords match
+    if (newPassword !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false; // Prevent form submission
+    }
+
+    // Check if the password length is at least 6 characters
+    if (newPassword.length < 6) {
+        alert("Password should be at least 6 characters long!");
+        return false; // Prevent form submission
+    }
+
+    // If all validation passed, allow form submission
+    return true;
+}
 
 
 
