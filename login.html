@@ -103,8 +103,8 @@
         }
 
         // Check if password is exactly 6 characters long
-        if (password.length !== 6) {
-            passwordError.textContent = 'Password should be exactly 6 characters long.';
+        if (password.length < 6) {
+            passwordError.textContent = 'Password should be at least 6 characters long.';
             return false; // Prevent form submission
         }
 
