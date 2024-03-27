@@ -179,6 +179,10 @@ padding-top: 21px;
   padding-top: 15px;
   height: 55px;
 }
+.check:hover{
+  text-decoration: none;
+  cursor: pointer;
+}
 .pay p{
   font-size: 20px;
   font-family: cursive;
@@ -300,3 +304,18 @@ display: none;
   margin-top: 15px;
 }
 
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
+.row {
+  position: relative;
+}
+.row .error-message {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+ 
+
+}
